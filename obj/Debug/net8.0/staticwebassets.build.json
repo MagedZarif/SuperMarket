@@ -1,0 +1,125 @@
+{
+  "Version": 1,
+  "Hash": "XUxTPPUkd18DPDBPcQl2wInGvW3RDyL4cz7cSshX8Ho=",
+  "Source": "SuperMarket",
+  "BasePath": "_content/SuperMarket",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "SuperMarket\\wwwroot",
+      "Source": "SuperMarket",
+      "ContentRoot": "E:\\dotnet\\examplesProjects\\SuperMarket\\wwwroot\\",
+      "BasePath": "_content/SuperMarket",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "E:\\dotnet\\examplesProjects\\SuperMarket\\wwwroot\\js\\Sales.js",
+      "SourceId": "SuperMarket",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\dotnet\\examplesProjects\\SuperMarket\\wwwroot\\",
+      "BasePath": "_content/SuperMarket",
+      "RelativePath": "js/Sales#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "oqxssqovcd",
+      "Integrity": "MOKVX7x76RKCE6Rp93RpneLX0O0ppLN0u4vAEN7uP3A=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Sales.js"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "js/Sales.js",
+      "AssetFile": "E:\\dotnet\\examplesProjects\\SuperMarket\\wwwroot\\js\\Sales.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "829"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MOKVX7x76RKCE6Rp93RpneLX0O0ppLN0u4vAEN7uP3A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 13:05:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MOKVX7x76RKCE6Rp93RpneLX0O0ppLN0u4vAEN7uP3A="
+        }
+      ]
+    },
+    {
+      "Route": "js/Sales.oqxssqovcd.js",
+      "AssetFile": "E:\\dotnet\\examplesProjects\\SuperMarket\\wwwroot\\js\\Sales.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "829"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MOKVX7x76RKCE6Rp93RpneLX0O0ppLN0u4vAEN7uP3A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 13:05:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "oqxssqovcd"
+        },
+        {
+          "Name": "label",
+          "Value": "js/Sales.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MOKVX7x76RKCE6Rp93RpneLX0O0ppLN0u4vAEN7uP3A="
+        }
+      ]
+    }
+  ]
+}

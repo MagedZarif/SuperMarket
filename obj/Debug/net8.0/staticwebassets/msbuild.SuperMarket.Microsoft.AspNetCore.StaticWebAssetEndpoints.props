@@ -1,0 +1,16 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/SuperMarket/js/Sales.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Sales.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-MOKVX7x76RKCE6Rp93RpneLX0O0ppLN0u4vAEN7uP3A="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"829"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022MOKVX7x76RKCE6Rp93RpneLX0O0ppLN0u4vAEN7uP3A=\u0022"},{"Name":"Last-Modified","Value":"Thu, 27 Mar 2025 13:05:45 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SuperMarket/js/Sales.oqxssqovcd.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Sales.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"oqxssqovcd"},{"Name":"integrity","Value":"sha256-MOKVX7x76RKCE6Rp93RpneLX0O0ppLN0u4vAEN7uP3A="},{"Name":"label","Value":"_content/SuperMarket/js/Sales.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"829"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022MOKVX7x76RKCE6Rp93RpneLX0O0ppLN0u4vAEN7uP3A=\u0022"},{"Name":"Last-Modified","Value":"Thu, 27 Mar 2025 13:05:45 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,530 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\dotnet\\examplesProjects\\SuperMarket\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\supermarket.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:supermarket.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\controllers\\salescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:controllers\\salescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\views\\sales\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:views\\sales\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\wwwroot\\js\\sales.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:wwwroot\\js\\sales.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\views\\view.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:views\\view.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\controllers\\salecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:controllers\\salecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\controllers\\iitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:controllers\\iitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\models\\iitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:models\\iitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\models\\sale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:models\\sale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\dbcontext\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:dbcontext\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\controllers\\itemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:controllers\\itemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\dto\\saledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:dto\\saledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/DESKTOP_N7TFFRD_SQLEXPRESS/SuperMarket/True/SqlTable/dbo.Iitems.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/DESKTOP_N7TFFRD_SQLEXPRESS/SuperMarket/True/SqlTable/dbo.items.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\dto\\iitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:dto\\iitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\dto\\itemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:dto\\itemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\dto\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:dto\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\dto\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:dto\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\errorhandlermiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:errorhandlermiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|e:\\dotnet\\examplesprojects\\supermarket\\migrations\\20250315201353_initialmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30DA6C17-BD41-4837-8189-DF7321338BBF}|SuperMarket.csproj|solutionrelative:migrations\\20250315201353_initialmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-30T09:39:03.799Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SuperMarket.http",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\SuperMarket.http",
+              "RelativeDocumentMoniker": "SuperMarket.http",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\SuperMarket.http",
+              "RelativeToolTip": "SuperMarket.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-03-30T09:29:55.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SalesController.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\SalesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SalesController.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\SalesController.cs",
+              "RelativeToolTip": "Controllers\\SalesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T13:01:48.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T13:00:00.344Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T19:42:24.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\AuthController.cs*",
+              "RelativeToolTip": "Controllers\\AuthController.cs*",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwDEAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T02:15:16.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAUwAoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T09:39:45.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "index.cshtml",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Views\\Sales\\index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Sales\\index.cshtml",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Views\\Sales\\index.cshtml",
+              "RelativeToolTip": "Views\\Sales\\index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T13:00:29.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "View.cshtml",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Views\\View.cshtml",
+              "RelativeDocumentMoniker": "Views\\View.cshtml",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Views\\View.cshtml",
+              "RelativeToolTip": "Views\\View.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T12:49:59.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T13:01:09.251Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T13:10:15.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Sales.js",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\wwwroot\\js\\Sales.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Sales.js",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\wwwroot\\js\\Sales.js",
+              "RelativeToolTip": "wwwroot\\js\\Sales.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-27T13:05:37.189Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-15T19:42:30.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SaleController.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\SaleController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SaleController.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\SaleController.cs",
+              "RelativeToolTip": "Controllers\\SaleController.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T02:13:36.773Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "sale.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\models\\sale.cs",
+              "RelativeDocumentMoniker": "models\\sale.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\models\\sale.cs",
+              "RelativeToolTip": "models\\sale.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T01:56:07.894Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IItemController.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\IItemController.cs",
+              "RelativeDocumentMoniker": "Controllers\\IItemController.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\IItemController.cs",
+              "RelativeToolTip": "Controllers\\IItemController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T20:17:12.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "APPDBContext.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\DBContext\\APPDBContext.cs",
+              "RelativeDocumentMoniker": "DBContext\\APPDBContext.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\DBContext\\APPDBContext.cs",
+              "RelativeToolTip": "DBContext\\APPDBContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T19:41:49.309Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Item.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\models\\Item.cs",
+              "RelativeDocumentMoniker": "models\\Item.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\models\\Item.cs",
+              "RelativeToolTip": "models\\Item.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T19:46:23.2Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IItem.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\models\\IItem.cs",
+              "RelativeDocumentMoniker": "models\\IItem.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\models\\IItem.cs",
+              "RelativeToolTip": "models\\IItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T19:58:37.916Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ItemsController.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\ItemsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ItemsController.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\ItemsController.cs",
+              "RelativeToolTip": "Controllers\\ItemsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T09:37:13.353Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SaleDTO.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\DTO\\SaleDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\SaleDTO.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\DTO\\SaleDTO.cs",
+              "RelativeToolTip": "DTO\\SaleDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T02:04:31.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CategoriesController.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "Controllers\\CategoriesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T09:31:37.495Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "IItemDTO.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\DTO\\IItemDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\IItemDTO.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\DTO\\IItemDTO.cs",
+              "RelativeToolTip": "DTO\\IItemDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T20:14:57.99Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Category.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\models\\Category.cs",
+              "RelativeDocumentMoniker": "models\\Category.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\models\\Category.cs",
+              "RelativeToolTip": "models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T19:45:08.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "dbo.items.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/DESKTOP_N7TFFRD_SQLEXPRESS/SuperMarket/True/SqlTable/dbo.items.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/DESKTOP_N7TFFRD_SQLEXPRESS/SuperMarket/True/SqlTable/dbo.items.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-03-26T14:04:24.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "dbo.Iitems.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/DESKTOP_N7TFFRD_SQLEXPRESS/SuperMarket/True/SqlTable/dbo.Iitems.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/DESKTOP_N7TFFRD_SQLEXPRESS/SuperMarket/True/SqlTable/dbo.Iitems.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-03-26T14:03:45.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "APPDBContextModelSnapshot.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Migrations\\APPDBContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Migrations\\APPDBContextModelSnapshot.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Migrations\\APPDBContextModelSnapshot.cs",
+              "RelativeToolTip": "Migrations\\APPDBContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAiwBEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T12:45:20.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ItemDTO.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\DTO\\ItemDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\ItemDTO.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\DTO\\ItemDTO.cs",
+              "RelativeToolTip": "DTO\\ItemDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T11:08:58.404Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "LoginDTO.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\DTO\\LoginDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\LoginDTO.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\DTO\\LoginDTO.cs",
+              "RelativeToolTip": "DTO\\LoginDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T11:09:06.606Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ErrorHandlerMiddleware.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\ErrorHandlerMiddleware.cs",
+              "RelativeDocumentMoniker": "ErrorHandlerMiddleware.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\ErrorHandlerMiddleware.cs",
+              "RelativeToolTip": "ErrorHandlerMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T09:44:24.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "RegisterDTO.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\DTO\\RegisterDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\RegisterDTO.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\DTO\\RegisterDTO.cs",
+              "RelativeToolTip": "DTO\\RegisterDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T09:25:29.792Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "20250315201353_initialMigration.cs",
+              "DocumentMoniker": "E:\\dotnet\\examplesProjects\\SuperMarket\\Migrations\\20250315201353_initialMigration.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250315201353_initialMigration.cs",
+              "ToolTip": "E:\\dotnet\\examplesProjects\\SuperMarket\\Migrations\\20250315201353_initialMigration.cs",
+              "RelativeToolTip": "Migrations\\20250315201353_initialMigration.cs",
+              "ViewState": "AgIAAPkAAAAAAAAAAAAAAA4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T09:05:24.199Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

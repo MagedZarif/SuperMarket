@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "ManifestType": "Build",
+  "Endpoints": [
+    {
+      "Route": "js/Sales.js",
+      "AssetFile": "js/Sales.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "829"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MOKVX7x76RKCE6Rp93RpneLX0O0ppLN0u4vAEN7uP3A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 13:05:45 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MOKVX7x76RKCE6Rp93RpneLX0O0ppLN0u4vAEN7uP3A="
+        }
+      ]
+    },
+    {
+      "Route": "js/Sales.oqxssqovcd.js",
+      "AssetFile": "js/Sales.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "829"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MOKVX7x76RKCE6Rp93RpneLX0O0ppLN0u4vAEN7uP3A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 13:05:45 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "oqxssqovcd"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MOKVX7x76RKCE6Rp93RpneLX0O0ppLN0u4vAEN7uP3A="
+        },
+        {
+          "Name": "label",
+          "Value": "js/Sales.js"
+        }
+      ]
+    }
+  ]
+}

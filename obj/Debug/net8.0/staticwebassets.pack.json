@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\dotnet\\examplesProjects\\SuperMarket\\wwwroot\\js\\Sales.js",
+      "PackagePath": "staticwebassets\\js\\Sales.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SuperMarket.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SuperMarket.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.SuperMarket.props",
+      "PackagePath": "build\\SuperMarket.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.SuperMarket.props",
+      "PackagePath": "buildMultiTargeting\\SuperMarket.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.SuperMarket.props",
+      "PackagePath": "buildTransitive\\SuperMarket.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
