@@ -40,7 +40,7 @@ namespace SuperMarket.Controllers
 
             return Ok(new
             {
-                
+                count = items.Count,
                 iitems = items.Select(i => new 
                 {
                     ItemId = i.ItemId,
@@ -98,6 +98,7 @@ namespace SuperMarket.Controllers
                 .ToListAsync();
             return Ok(new
             {
+                count= iitems.Count,
                 iitems = iitems.Select(i => new
                 {
                     ItemId = i.ItemId,
@@ -129,6 +130,7 @@ namespace SuperMarket.Controllers
             
             return Ok(new
             {
+                count= iitems.Count(i => i.ItemId == itemid),
                 iitems = iitems.Select(i => new 
                 {
                     ItemId = i.ItemId,
@@ -139,7 +141,37 @@ namespace SuperMarket.Controllers
                     IsSell = i.IsSell,
                     SaleId = i.SaleId,
                     userId = i.userId,
-                    username=i.User.UserName
+                    username=i.User.UserName,
+                })
+            });
+        }
+        
+        [HttpGet("specificitemNotSell/{itemid}")]
+        public async Task<ActionResult<IEnumerable<IItem>>> GetIItemsByItemIdNotSell(int itemid)
+        {
+            var isItemExist = await _context.items.AnyAsync(i => i.Id == itemid);
+            if (isItemExist == false)
+                return NotFound(new { message = "Item not found." });
+
+            var iitems = await _context.Iitems
+                .Where(i => i.ItemId == itemid && i.IsSell==false).Include(i=>i.User)
+                .ToListAsync();
+            
+            
+            return Ok(new
+            {
+                count = iitems.Count(i => i.ItemId == itemid),
+                iitems = iitems.Select(i => new
+                {
+                    ItemId = i.ItemId,
+                    StartDate = i.StartDate,
+                    ExpiredDate = i.ExpiredDate,
+                    Price = i.Price,
+                    Qrcode = i.Qrcode,
+                    IsSell = i.IsSell,
+                    SaleId = i.SaleId,
+                    userId = i.userId,
+                    username = i.User.UserName,
                 })
             });
         }

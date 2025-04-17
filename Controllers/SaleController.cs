@@ -104,45 +104,91 @@ namespace SuperMarket.Controllers
         }
 
 
-        [HttpGet("GetAvailableIItem/{itemId}")]
-        public async Task<ActionResult<IItem>> GetAvailableIItem([FromRoute] int itemId)
+        [HttpGet("GetAvailableIItem/{itemId}/{numberOfItems}")]
+        public async Task<ActionResult<IItem>> GetAvailableIItem([FromRoute] int itemId,[FromRoute] int numberOfItems = 1)
         {
-            var iitem = await _context.Iitems
-                .Where(i => i.ItemId == itemId && i.IsSell == false && i.Qrcode == null)
+            var primaryItems = await _context.Iitems
+                .Where(i => i.ItemId == itemId && !i.IsSell && i.Qrcode == null)
+                .Include(i => i.User)
                 .OrderBy(i => i.StartDate)
-                .FirstOrDefaultAsync();
+                .Take(numberOfItems)
+                .ToListAsync();
 
-            if (iitem == null)
+            
+            var totalFetched = primaryItems;
+            if (primaryItems.Count < numberOfItems)
             {
-                iitem = await _context.Iitems
-                    .Where(i => i.ItemId == itemId && i.IsSell == false)
+                int remaining = numberOfItems - primaryItems.Count;
+                var secondaryItems = await _context.Iitems
+                    .Where(i => i.ItemId == itemId && !i.IsSell && i.Qrcode != null)
+                    .Include(i => i.User)
                     .OrderBy(i => i.StartDate)
-                    .FirstOrDefaultAsync();
+                    .Take(remaining)
+                    .ToListAsync();
+                totalFetched.AddRange(secondaryItems);
             }
 
-            if (iitem == null)
+
+            if (totalFetched.Count < numberOfItems)
             {
-                return NotFound(new { message = "No available IItem found for the given ItemId." });
+                return BadRequest(new
+                {
+                    message = $"Only {totalFetched.Count} item(s) available out of {numberOfItems} requested."
+                });
             }
 
-            return Ok(iitem);
+
+            return Ok(totalFetched.Select(i=>new
+            {
+                i.Id,
+                i.StartDate,
+                i.ExpiredDate,
+                i.Price,
+                i.Qrcode,
+                i.ItemId,
+                i.IsSell,
+                i.userId,
+                i.User.UserName
+            }));
         }
         
         
-        [HttpGet("GetAvailableIItemByQrcode/{Qrcode}")]
-        public async Task<ActionResult<IItem>> GetAvailableIItemByQrcode([FromRoute] String Qrcode)
+        [HttpGet("GetAvailableIItemByQrcode/{Qrcode}/{numberOfItems}")]
+        public async Task<ActionResult<IItem>> GetAvailableIItemByQrcode([FromRoute] String Qrcode,[FromRoute]int numberOfItems=1)
         {
-            var iitem = await _context.Iitems
+            
+            var availableItems = await _context.Iitems
                 .Where(i => i.Qrcode == Qrcode && i.IsSell == false)
+                .Include(i=>i.User)
                 .OrderBy(i => i.StartDate)
-                .FirstOrDefaultAsync();
+                .ToListAsync();
 
-            if (iitem == null)
+            if (!availableItems.Any())
             {
-                return NotFound(new { message = "No available IItem found for the given ItemId." });
+                return NotFound(new { message = "No available IItem found for the given Qrcode." });
             }
 
-            return Ok(iitem);
+            if (availableItems.Count < numberOfItems)
+            {
+                return BadRequest(new { 
+                    message = $"Only {availableItems.Count} item(s) available out of {numberOfItems} requested."
+                });
+            }
+
+            var iitems = availableItems.Take(numberOfItems).ToList();
+            return Ok(iitems.Select(i => new 
+            {
+                i.Id,
+                i.StartDate,
+                i.ExpiredDate,
+                i.Price,
+                i.Qrcode,
+                i.ItemId,
+                i.IsSell,
+                i.userId,
+                i.User.UserName
+                ,
+            }));
         }
         
         
