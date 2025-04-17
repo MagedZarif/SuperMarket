@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SuperMarket.DBContext;
+using SuperMarket.DTO;
 using SuperMarket.models;
 
 [Route("superMarket/[controller]")]
 [ApiController]
-[Authorize(Roles = "Admin")]
+[Authorize]
 public class CategoriesController : ControllerBase
 {
     private readonly APPDBContext _context;
@@ -23,27 +24,39 @@ public class CategoriesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(Category model)
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> Create(CategoryDTO model)
     {
-        _context.categories.Add(model);
+        if (string.IsNullOrWhiteSpace(model.Name))
+            return BadRequest("Category name is required.");
+        
+        var category = new Category
+        {
+            name = model.Name,
+            description = model.Description
+        };
+        _context.categories.Add(category);
         await _context.SaveChangesAsync();
         return Ok(model);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(int id, Category model)
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> Update(int id, CategoryDTO model)
     {
         var category = await _context.categories.FindAsync(id);
         if (category == null)
             return NotFound();
 
-        category.name = model.name;
+        category.name = model.Name?? category.name;
+        category.description = model.Description?? category.description;
         await _context.SaveChangesAsync();
 
         return Ok(category);
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Delete(int id)
     {
         var category = await _context.categories.FindAsync(id);

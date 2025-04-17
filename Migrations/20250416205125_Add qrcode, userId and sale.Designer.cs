@@ -12,8 +12,8 @@ using SuperMarket.DBContext;
 namespace SuperMarket.Migrations
 {
     [DbContext(typeof(APPDBContext))]
-    [Migration("20250327022921_Sale")]
-    partial class Sale
+    [Migration("20250416205125_Add qrcode, userId and sale")]
+    partial class AddqrcodeuserIdandsale
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -232,14 +232,17 @@ namespace SuperMarket.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
                     b.Property<string>("description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.HasKey("id");
+
+                    b.HasIndex("name")
+                        .IsUnique();
 
                     b.ToTable("categories");
                 });
@@ -264,17 +267,26 @@ namespace SuperMarket.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<string>("Qrcode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("SaleId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("userId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ItemId");
 
                     b.HasIndex("SaleId");
+
+                    b.HasIndex("userId");
 
                     b.ToTable("Iitems");
                 });
@@ -295,7 +307,8 @@ namespace SuperMarket.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
@@ -306,6 +319,9 @@ namespace SuperMarket.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("items");
                 });
@@ -324,7 +340,13 @@ namespace SuperMarket.Migrations
                     b.Property<double?>("total")
                         .HasColumnType("float");
 
+                    b.Property<string>("userId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("id");
+
+                    b.HasIndex("userId");
 
                     b.ToTable("sales");
                 });
@@ -390,12 +412,19 @@ namespace SuperMarket.Migrations
 
                     b.HasOne("SuperMarket.models.Sale", "Sale")
                         .WithMany("Iitems")
-                        .HasForeignKey("SaleId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("SaleId");
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Item");
 
                     b.Navigation("Sale");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SuperMarket.models.Item", b =>
@@ -407,6 +436,17 @@ namespace SuperMarket.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("SuperMarket.models.Sale", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SuperMarket.models.Item", b =>

@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SuperMarket.DBContext;
+using SuperMarket.DTO;
 using SuperMarket.models;
 
 namespace SuperMarket.Controllers
@@ -39,6 +41,16 @@ namespace SuperMarket.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateSale([FromBody] List<int> iitemIds)
         {
+            var userName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userName))
+            {
+            
+                return Unauthorized("User not found in token.");
+            }
+            
+            var user = await _userManager.FindByNameAsync(userName);
+            
+            
             if (iitemIds == null || !iitemIds.Any())
                 return BadRequest(new { message = "No items selected for sale." });
 
@@ -56,6 +68,7 @@ namespace SuperMarket.Controllers
                     soldItemIds = alreadySoldItems
                 });
             }
+
             var iitems = await _context.Iitems
                 .Where(i => iitemIds.Contains(i.Id) && !i.IsSell)
                 .ToListAsync();
@@ -63,16 +76,18 @@ namespace SuperMarket.Controllers
             if (!iitems.Any())
                 return NotFound(new { message = "No available items found." });
 
-       
+
             double totalPrice = iitems.Sum(i => i.Price);
 
 
+            
 
             var sale = new Sale
             {
                 total = totalPrice,
                 date = DateTime.UtcNow,
-                Iitems = iitems
+                Iitems = iitems,
+                userId = user.Id
             };
 
             // Update the items as sold
@@ -88,26 +103,38 @@ namespace SuperMarket.Controllers
             return Ok(new { message = "Sale completed!", saleId = sale.id, totalPrice });
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, Sale model)
-        {
-            var sale = await _context.sales.FindAsync(id);
-            if (sale == null)
-                return NotFound();
 
-            sale.date = model.date;
-            sale.total = model.total;
-            await _context.SaveChangesAsync();
-            return Ok(sale);
-        }
-
-
-        [HttpGet("GetAvailableIItem")]
-        public async Task<ActionResult<IItem>> GetAvailableIItem([FromBody]int itemId)
+        [HttpGet("GetAvailableIItem/{itemId}")]
+        public async Task<ActionResult<IItem>> GetAvailableIItem([FromRoute] int itemId)
         {
             var iitem = await _context.Iitems
-                .Where(i => i.ItemId == itemId && i.IsSell == false)
-                .OrderBy(i => i.StartDate) 
+                .Where(i => i.ItemId == itemId && i.IsSell == false && i.Qrcode == null)
+                .OrderBy(i => i.StartDate)
+                .FirstOrDefaultAsync();
+
+            if (iitem == null)
+            {
+                iitem = await _context.Iitems
+                    .Where(i => i.ItemId == itemId && i.IsSell == false)
+                    .OrderBy(i => i.StartDate)
+                    .FirstOrDefaultAsync();
+            }
+
+            if (iitem == null)
+            {
+                return NotFound(new { message = "No available IItem found for the given ItemId." });
+            }
+
+            return Ok(iitem);
+        }
+        
+        
+        [HttpGet("GetAvailableIItemByQrcode/{Qrcode}")]
+        public async Task<ActionResult<IItem>> GetAvailableIItemByQrcode([FromRoute] String Qrcode)
+        {
+            var iitem = await _context.Iitems
+                .Where(i => i.Qrcode == Qrcode && i.IsSell == false)
+                .OrderBy(i => i.StartDate)
                 .FirstOrDefaultAsync();
 
             if (iitem == null)
@@ -117,20 +144,68 @@ namespace SuperMarket.Controllers
 
             return Ok(iitem);
         }
-
-
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        
+        
+        
+        [HttpPost("itemInformation/{itemId}")]
+        public async Task<IActionResult> GetItemsInformation([FromRoute]int itemId)
         {
-            var sale = await _context.sales.FindAsync(id);
+            var Sale = await _context.sales.Where(i => i.Iitems.Any(i=>i.Id==itemId)).ToListAsync();
+        
+            return Ok(Sale);
+        }
+
+
+        [HttpPut("{saleId}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> UpdateSale([FromBody] SaleDTO sale, [FromRoute] int saleId)
+        {
+            var existingSale = await _context.sales.FindAsync(saleId);
+            if (existingSale == null)
+                return NotFound();
+
+
+            if (sale.total.HasValue)
+                existingSale.total = sale.total;
+
+            if (!string.IsNullOrEmpty(sale.userId))
+                existingSale.userId = sale.userId;
+
+            //date fromat
+            //2023-12-25T00:00:00
+            if (sale.date.HasValue)
+            {
+
+                existingSale.date = new DateTime(
+                    sale.date.Value.Year != 1 ? sale.date.Value.Year : existingSale.date.Year,
+                    sale.date.Value.Month != 1 ? sale.date.Value.Month : existingSale.date.Month,
+                    sale.date.Value.Day != 1 ? sale.date.Value.Day : existingSale.date.Day,
+                    sale.date.Value.Hour != 1 ? sale.date.Value.Hour : existingSale.date.Hour,
+                    sale.date.Value.Minute != 1 ? sale.date.Value.Minute : existingSale.date.Minute,
+                    sale.date.Value.Second != 1 ? sale.date.Value.Second : existingSale.date.Second,
+                    0
+
+                );
+            }
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Sale updated successfully!", Sale = existingSale });
+        }
+
+        [HttpDelete("{saleId}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteSale(int saleId)
+        {
+            var sale = await _context.sales.FindAsync(saleId);
             if (sale == null)
                 return NotFound();
 
             _context.sales.Remove(sale);
             await _context.SaveChangesAsync();
-            return Ok(sale);
-        }
 
+            return Ok(new { message = "sale deleted successfully!", Sale = sale });
+        }
     }
 }
+

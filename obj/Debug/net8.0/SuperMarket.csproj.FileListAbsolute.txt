@@ -260,3 +260,4 @@ E:\dotnet\examplesProjects\SuperMarket\bin\Debug\net8.0\runtimes\win\lib\net7.0\
 E:\dotnet\examplesProjects\SuperMarket\obj\Debug\net8.0\SuperMarket.RazorAssemblyInfo.cache
 E:\dotnet\examplesProjects\SuperMarket\obj\Debug\net8.0\SuperMarket.RazorAssemblyInfo.cs
 E:\dotnet\examplesProjects\SuperMarket\bin\Debug\net8.0\SuperMarket.staticwebassets.runtime.json
+E:\dotnet\examplesProjects\SuperMarket\obj\Debug\net8.0\SuperMarket.sourcelink.json

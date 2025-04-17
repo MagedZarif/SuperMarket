@@ -69,14 +69,15 @@ public class ItemsController : ControllerBase
         var category = await _context.categories.FindAsync(model.CategoryId);
         if (category == null)
             return NotFound("Category not found");
+        
+        
 
         var item = new Item
         {
-            Name = model.Name,
-            Price = model.Price,
-            Quantity = model.Quantity,
-    
-            CategoryId = model.CategoryId
+            Name = model.Name??string.Empty,
+            Price = model.Price??0.0,
+            Quantity = model.Quantity??0,
+            CategoryId = model.CategoryId??0
         };
 
         _context.items.Add(item);
@@ -87,7 +88,7 @@ public class ItemsController : ControllerBase
 
     [HttpPut("{id}")]
     [Authorize(Roles ="Admin")]
-    public async Task<IActionResult> Update(int id, Item updatedItem)
+    public async Task<IActionResult> Update(int id, ItemDTO updatedItem)
     {
         var item = await _context.items.FindAsync(id);
         if (item == null)
@@ -99,10 +100,10 @@ public class ItemsController : ControllerBase
         //if (item.OwnerId != userId && !isAdmin)
         //    return Unauthorized();
 
-        item.Name = updatedItem.Name;
-        item.Price = updatedItem.Price;
-        item.Quantity = updatedItem.Quantity;
-        item.CategoryId = updatedItem.CategoryId;
+        item.Name = updatedItem.Name ?? item.Name;
+        item.Price = updatedItem.Price ?? item.Price;
+        item.Quantity = updatedItem.Quantity ?? item.Quantity;
+        item.CategoryId = updatedItem.CategoryId ?? item.CategoryId;
 
         await _context.SaveChangesAsync();
         return Ok(item);

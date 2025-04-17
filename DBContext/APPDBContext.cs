@@ -39,7 +39,14 @@ namespace SuperMarket.DBContext
                 .HasMany(s => s.Iitems)
                 .WithOne(i => i.Sale)
                 .HasForeignKey(i => i.SaleId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            
+            
+            modelBuilder.Entity<Sale>()
+                .HasOne(s => s.User)
+                .WithMany()
+                .HasForeignKey(s => s.userId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             //modelBuilder.Entity<Item>()
             //    .Ignore(i => i.Quantity)

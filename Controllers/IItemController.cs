@@ -11,8 +11,7 @@ using SuperMarket.models;
 //review this page
 namespace SuperMarket.Controllers
 {
-
-
+    
     [Route("superMarket/[controller]")]
     [ApiController]
     [Authorize]
@@ -36,35 +35,29 @@ namespace SuperMarket.Controllers
         public async Task<ActionResult<IEnumerable<IItem>>> GetIItems()
         {
 
-            //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            //var user = await _userManager.FindByIdAsync(userId); 
-            //var roles = await _userManager.GetRolesAsync(user); 
-
-            //var items = new List<IItem>();
-            //if (roles.Contains("Admin"))
-            //{
-            //    items = await _context.Iitems
-            //        .ToListAsync();
-            //}
-            //else
-            //{
-            //    items = await _context.Iitems
-            //        .Where(i => i.IsSell == false)
-            //        .ToListAsync();
-            //}
-
             var items = new List<IItem>();
-            items = await _context.Iitems.ToListAsync(); 
+            items = await _context.Iitems.Include(i=>i.User).ToListAsync();
 
-            return Ok(items);
-
-
+            return Ok(new
+            {
+                
+                iitems = items.Select(i => new 
+                {
+                    ItemId = i.ItemId,
+                    StartDate = i.StartDate,
+                    ExpiredDate = i.ExpiredDate,
+                    Price = i.Price,
+                    qrcode = i.Qrcode,
+                    IsSell = i.IsSell,
+                    SaleId = i.SaleId,
+                    username = i.User.UserName,
+                }).OrderBy(i=>i.Price)
+            });
         }
 
         //make one iitem get by firstordufault by price and itemid and not sell
 
-
-
+        
 
 
         /// Get IItem by Id
@@ -77,52 +70,20 @@ namespace SuperMarket.Controllers
             {
                 return NotFound(new { message = "IItem not found." });
             }
-
-            //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            //var user = await _userManager.FindByIdAsync(userId);
-            //var roles = await _userManager.GetRolesAsync(user);
-
-            //var items = new List<IItemDTO>();
-            //if (roles.Contains("Admin"))
-            //{
-            //    items = await _context.Iitems
-            //        .Where(i => i.Id == id)
-            //        .Select(i => new IItemDTO
-            //        {
-            //            StartDate = i.StartDate,
-            //            ExpiredDate = i.ExpiredDate,
-            //            Price = i.Price,
-            //            IsSell = i.IsSell
-            //        })
-            //        .ToListAsync();
-            //}
-            //else
-            //{
-            //    items = await _context.Iitems
-            //        .Where(i => i.Id == id && i.IsSell == false)
-            //        .Select(i => new IItemDTO
-            //        {
-            //            StartDate = i.StartDate,
-            //            ExpiredDate = i.ExpiredDate,
-            //            Price = i.Price,
-            //            IsSell = i.IsSell
-            //        })
-            //        .ToListAsync();
-            //}
-
-
-            var items = new List<IItemDTO>();
-      
-                items = await _context.Iitems
-                    .Where(i => i.Id == id)
-                    .Select(i => new IItemDTO
-                    {
-                        StartDate = i.StartDate,
-                        ExpiredDate = i.ExpiredDate,
-                        Price = i.Price,
-                        IsSell = i.IsSell
-                    })
-                    .ToListAsync();
+            
+            var items = await _context.Iitems
+                .Where(i => i.Id == id)
+                .Include(i=>i.User)
+                .Select(i => new 
+                {
+                    StartDate = i.StartDate,
+                    ExpiredDate = i.ExpiredDate,
+                    Price = i.Price,
+                    IsSell = i.IsSell,
+                    userId = i.User.Id,
+                    userName = i.User.UserName,
+                })
+                .ToListAsync();
 
                 return Ok(items);
         }
@@ -133,10 +94,26 @@ namespace SuperMarket.Controllers
         {
             var iitems = await _context.Iitems
                 .Where(i => i.ExpiredDate < DateTime.UtcNow)
-                .Include(i => i.Item)
+                .Include(i => i.Item).Include(i=>i.User)
                 .ToListAsync();
-            return Ok(iitems);
-        }
+            return Ok(new
+            {
+                iitems = iitems.Select(i => new
+                {
+                    ItemId = i.ItemId,
+                    StartDate = i.StartDate,
+                    ExpiredDate = i.ExpiredDate,
+                    Price = i.Price,
+                    Qrcode = i.Qrcode,
+                    IsSell = i.IsSell,
+                    SaleId = i.SaleId,
+                    userId = i.userId,
+                    username=i.User.UserName
+
+                })
+            });
+        
+    }
 
         [HttpGet("specificitem/{itemid}")]
         public async Task<ActionResult<IEnumerable<IItem>>> GetIItemsByItemId(int itemid)
@@ -146,10 +123,25 @@ namespace SuperMarket.Controllers
                 return NotFound(new { message = "Item not found." });
 
             var iitems = await _context.Iitems
-                .Where(i => i.ItemId == itemid)
-                //.Include(i=>i.Item)
+                .Where(i => i.ItemId == itemid).Include(i=>i.User)
                 .ToListAsync();
-            return Ok(iitems);
+            
+            
+            return Ok(new
+            {
+                iitems = iitems.Select(i => new 
+                {
+                    ItemId = i.ItemId,
+                    StartDate = i.StartDate,
+                    ExpiredDate = i.ExpiredDate,
+                    Price = i.Price,
+                    Qrcode = i.Qrcode,
+                    IsSell = i.IsSell,
+                    SaleId = i.SaleId,
+                    userId = i.userId,
+                    username=i.User.UserName
+                })
+            });
         }
 
 
@@ -159,6 +151,15 @@ namespace SuperMarket.Controllers
         public async Task<ActionResult<IItemDTO>> CreateIItem(IItemDTO iitemDto)
         {
             
+            var userName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userName))
+            {
+            
+                return Unauthorized("User not found in token.");
+            }
+            
+            var user = await _userManager.FindByNameAsync(userName);
+            
             if (iitemDto.ExpiredDate <= iitemDto.StartDate)
             {
                 return BadRequest(new { message = "Expired date must be after the start date." });
@@ -167,28 +168,47 @@ namespace SuperMarket.Controllers
 
             var iitem = new IItem
             {
-                StartDate = (DateTime)iitemDto.StartDate,
-                ExpiredDate = (DateTime)iitemDto.ExpiredDate,
-                Price = (double)iitemDto.Price,
-                IsSell = (bool)iitemDto.IsSell,
-                ItemId = iitemDto.ItemId
-
+                StartDate = iitemDto.StartDate ?? DateTime.MinValue,
+                ExpiredDate = iitemDto.ExpiredDate ?? DateTime.MaxValue,
+                Price = iitemDto.Price ?? 0.0,
+                Qrcode = iitemDto.qrcode ?? null,
+                IsSell =iitemDto.IsSell ?? false,
+                ItemId = iitemDto.ItemId,
+                userId = user.Id
             };
 
             _context.Iitems.Add(iitem);
             await _context.SaveChangesAsync();
 
-            return Ok(iitem);
+            return Ok(new
+            {
+                iitem.ItemId,
+                iitem.StartDate,
+                iitem.ExpiredDate,
+                iitem.Price,
+                iitem.Qrcode,
+                iitem.IsSell,
+                iitem.userId,
+            });
         }
 
         //create any number of IItem
         [HttpPost("{numberOfIitems}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IItemDTO>> CreateXIItems(IItemDTO iitemDto,long numberOfIitems)
         { 
-                if (iitemDto.ExpiredDate <= iitemDto.StartDate)
-                {
-                    return BadRequest(new { message = "Expired date must be after the start date." });
-                }
+            var userName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userName))
+            {
+            
+                return Unauthorized("User not found in token.");
+            }
+            
+            var user = await _userManager.FindByNameAsync(userName);
+            if (iitemDto.ExpiredDate <= iitemDto.StartDate)
+            {
+                return BadRequest(new { message = "Expired date must be after the start date." });
+            }
 
             if (numberOfIitems < 0)
             {
@@ -200,16 +220,18 @@ namespace SuperMarket.Controllers
             {
                 var iitem = new IItem
                 {
-                    StartDate = (DateTime)iitemDto.StartDate,
-                    ExpiredDate = (DateTime)iitemDto.ExpiredDate,
-                    Price = (double)iitemDto.Price,
-                    IsSell = (bool)iitemDto.IsSell,
-                    ItemId = iitemDto.ItemId
+                    StartDate = iitemDto.StartDate ?? DateTime.MinValue,
+                    ExpiredDate =iitemDto.ExpiredDate ?? DateTime.MaxValue,
+                    Price =iitemDto.Price ?? 0.0,
+                    Qrcode = iitemDto.qrcode ?? null,
+                    IsSell = iitemDto.IsSell ?? false,
+                    ItemId = iitemDto.ItemId,
+                    userId = user.Id ?? String.Empty,
                 };
                 IitemList.Add(iitem);
 
             }
-
+            
            await _context.Iitems.AddRangeAsync(IitemList);
             await _context.SaveChangesAsync();
 
@@ -224,7 +246,8 @@ namespace SuperMarket.Controllers
                     insertedItem.ExpiredDate,
                     insertedItem.Price,
                     insertedItem.IsSell,
-                    insertedItem.ItemId
+                    insertedItem.ItemId,
+                    insertedItem.Qrcode
                 } : null
             });
         }
@@ -248,19 +271,22 @@ namespace SuperMarket.Controllers
                 return BadRequest(new { message = "Expired date must be after the start date." });
             }
 
-            iitem.StartDate = (DateTime)iitemDto.StartDate;
-            iitem.ExpiredDate = (DateTime)iitemDto.ExpiredDate;
-            iitem.Price = (double)iitemDto.Price;
-            iitem.IsSell = (bool)iitemDto.IsSell;
+                             
+            iitem.StartDate = iitemDto.StartDate??iitem.StartDate;
+            iitem.ExpiredDate =iitemDto.ExpiredDate ?? iitem.ExpiredDate;
+            iitem.Price = iitemDto.Price ?? iitem.Price;
+            iitem.IsSell = iitemDto.IsSell ?? iitem.IsSell;
+            iitem.Qrcode = iitemDto.qrcode ?? iitem.Qrcode;
             iitem.ItemId = iitemDto.ItemId;
-
+            iitem.SaleId = iitemDto.SaleId ?? iitem.SaleId;
+                                                                                                                   
             _context.Iitems.Update(iitem);
             await _context.SaveChangesAsync();
 
             return Ok(iitem);
         }
 
-        [HttpPut("specificItem/{id}")]
+        [HttpPut("specificItem/{id}")]                                                                                                                                                  
         [Authorize(Roles ="Admin")]
         public async Task<IActionResult> UpdateIItemsByItemId(int id, IItemDTO iitemDto)
         {
@@ -286,6 +312,8 @@ namespace SuperMarket.Controllers
                     iitem.Price = (double)iitemDto.Price;
                 if (iitemDto.IsSell != null)
                     iitem.IsSell = (bool)iitemDto.IsSell;
+                if (iitemDto.qrcode != null)
+                    iitem.Qrcode = (string)iitemDto.qrcode;
 
                 iitem.ItemId = iitemDto.ItemId;
             }
@@ -298,6 +326,7 @@ namespace SuperMarket.Controllers
         /// Delete an IItem by Id
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteIItem(int id)
         {
             var iitem = await _context.Iitems.FindAsync(id);

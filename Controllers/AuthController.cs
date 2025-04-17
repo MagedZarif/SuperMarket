@@ -4,7 +4,10 @@ using Microsoft.IdentityModel.Tokens;
 using SuperMarket.DTO;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 
@@ -18,6 +21,7 @@ public class AuthController : ControllerBase
 
     public AuthController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IConfiguration configuration)
     {
+        
         _userManager = userManager;
         _signInManager = signInManager;
         _configuration = configuration;
@@ -38,17 +42,9 @@ public class AuthController : ControllerBase
             return BadRequest(result.Errors);
 
         await _userManager.AddToRoleAsync(user, model.Role);
-
-        return RedirectToAction("Login");//for front
-        // return Ok("User registered successfully");
+        return Ok("User registered successfully");
     }
-
-    //
-    // [HttpGet]
-    // public IActionResult Login()
-    // {
-    //     return View();
-    // }
+    
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginDTO model)
     {
@@ -81,6 +77,16 @@ public class AuthController : ControllerBase
             Console.WriteLine($"Username: {user.UserName}, Id: {user.Id}");
             // Generate JWT token
             var token = GenerateJwtToken(user, roles);
+            
+            
+            var tokenEntry = new IdentityUserToken<string>
+            {
+                UserId = user.Id,
+                LoginProvider = "JWT",
+                Name = "AccessToken",
+                Value = token
+            };
+            await _userManager.SetAuthenticationTokenAsync(user, tokenEntry.LoginProvider, tokenEntry.Name, tokenEntry.Value);
             return Ok(new
             {
                 token = token,
@@ -95,38 +101,76 @@ public class AuthController : ControllerBase
         }
 
     }
+    
+    [HttpPost("logout")]
 
-    [HttpPost]
     public async Task<IActionResult> Logout()
     {
-        var user = await _userManager.GetUserAsync(User);
-        if (user == null)
-            return Unauthorized();
-
-   
-
-        await _userManager.UpdateSecurityStampAsync(user);
         
-        // return RedirectToAction("Login");//for front
-        return Ok(new { message = "Logged out successfully!" });
+        var userName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        
+        if (string.IsNullOrEmpty(userName))
+        {
+            
+            return Unauthorized("User not found in token.");
+        }
+    
+       
+        var user = await _userManager.FindByNameAsync(userName);
+        if (user == null)
+        {
+            return Unauthorized("notfound in token.");
+        }
+        
+        await _userManager.UpdateSecurityStampAsync(user);
+
+        await _signInManager.SignOutAsync();
+        
+        return Ok(new { message = "Logged out successfully!",user=user });
     }
+    
+    
 
-
+    [HttpDelete("delete-account")]
+    [Authorize]
+    public async Task<IActionResult> DeleteAccount()
+    {
+       
+        var userName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (string.IsNullOrEmpty(userName))
+        {
+            
+            return Unauthorized("User not found in token.");
+        }
+    
+       
+        var user = await _userManager.FindByNameAsync(userName);
+        if (user == null)
+        {
+            return Unauthorized("notfound in token.");
+        }
+        
+        var result = await _userManager.DeleteAsync(user);
+        if (!result.Succeeded)
+        {
+            return BadRequest(result.Errors);
+        }
+    
+        return Ok(new { message = "Account deleted successfully!", username = user.UserName });
+    }
     private string GenerateJwtToken(IdentityUser user, IList<string> roles)
     {
-        // Null check
         if (user == null || string.IsNullOrEmpty(user.UserName) || string.IsNullOrEmpty(user.Id))
             throw new ArgumentException("Invalid user data for token generation.");
 
         var claims = new List<Claim>
-    {
-        new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-        new Claim(ClaimTypes.NameIdentifier, user.Id),
-        new Claim("SecurityStamp", user.SecurityStamp)
-    };
+        {
+            new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new Claim(ClaimTypes.NameIdentifier, user.Id),
+            new Claim("SecurityStamp", user.SecurityStamp)
+        };
 
-        // Add role claims if any
         foreach (var role in roles)
         {
             claims.Add(new Claim(ClaimTypes.Role, role));
@@ -136,8 +180,8 @@ public class AuthController : ControllerBase
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(
-            issuer: "yourIssuer",
-            audience: "yourAudience",
+            issuer: _configuration["Jwt:Issuer"],
+            audience: _configuration["Jwt:Audience"],
             claims: claims,
             expires: DateTime.Now.AddHours(720),
             signingCredentials: creds
